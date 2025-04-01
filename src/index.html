@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tytuł kalkulatora</title>
+    <title>Szacowanie ryzyka wylegania</title>
     <link rel="stylesheet" href="output.css" />
 
     <!-- fonty -->
@@ -15,22 +15,59 @@
   <body class="m-0 p-0 bg-top-agrar-green/10 flex justify-center font-body">
     <div class="m-3 bg-white rounded-3xl container flex flex-col justify-start">
       <div class="header m-3 flex justify-between">
-        <div class="text-2xl font-header font-bold flex justify-center items-center flex-1"><p>Tytuł kalkulatora</p></div>
+        <div class="text-2xl font-header font-bold flex justify-center items-center flex-1"><p>Szacowanie ryzyka wylegania</p></div>
         <div class="h-full flex items-center justify-center">
           <button id="reset" class="w-24 h-12 flex items-center justify-center border-top-agrar-green border-2 rounded-3xl text-2xl text-top-agrar-green hover:bg-top-agrar-green/25">Resetuj</button>
         </div>
       </div>
       <div class="content mt-5 flex justify-around flex-wrap">
-        <div class="section w-80 p-3 flex flex-col justify-start">
-          <div class="mb-5 section-name text-lg font-bold text-center">NAZWA SEKCJI</div>
-          <div class="section-content">
-            <div class="input mb-5 flex">
-              <input type="text" class="w-24 h-12 pl-2 text-xl border-2 border-bg-info rounded-3xl flex-1 hover:bg-bg-info/25" id="" placeholder="podaj wartość x" />
-              <div class="ml-2 text-xl flex items-center">jednostka</div>
-            </div>
-            <div class="info mb-5">
-              <div class="text-2xl text-center">Tu wpisz tekst do wyświetlenia, np. wynik:</div>
-              <div class="text-3xl mt-4 text-top-agrar-green text-center">wynik j<sup>2</sup></div>
+        <div class="w-80 p-3 flex flex-col justify-start">
+          <div class="mb-5 flex flex-col">
+            <div class="text-2xl pl-2 pb-2">Wybór gatunku:</div>
+            <select class="w-full h-12 pl-2 text-xl border-2 border-bg-info rounded-3xl hover:bg-bg-info/25" id="gatunek">
+              <option selected disabled hidden value="0">Wybierz gatunek</option>
+              <option value="pszenica">Pszenica ozima</option>
+              <option value="jeczmien">Jęczmień jary</option>
+            </select>
+          </div>
+
+          <div class="mb-5 flex flex-col">
+            <div class="text-2xl pl-2 pb-2">Gleba:</div>
+            <select class="w-full h-12 pl-2 text-xl border-2 border-bg-info rounded-3xl hover:bg-bg-info/25" id="gleba">
+              <option selected disabled value="0">Wybierz z listy</option>
+              <option value="0">płytka (do 20 cm wartwy próchnicznej)</option>
+              <option value="1">średnia (20-35 cm wartwy próchnicznej)</option>
+              <option value="2">głęboka (ponad 35 cm wartwy próchnicznej)</option>
+            </select>
+          </div>
+
+          <div class="mb-5 flex flex-col">
+            <div class="text-2xl pl-2 pb-2">Odporność odmiany na wyleganie (ocena w st.):</div>
+            <select class="w-full h-12 pl-2 text-xl border-2 border-bg-info rounded-3xl hover:bg-bg-info/25" id="odpornosc">
+              <option selected disabled hidden>Wybierz gatunek</option>
+            </select>
+          </div>
+
+          <div class="mb-5 flex flex-col">
+            <div class="text-2xl pl-2 pb-2">Nawożenie azotem:</div>
+            <select class="w-full h-12 pl-2 text-xl border-2 border-bg-info rounded-3xl hover:bg-bg-info/25" id="nawozenie">
+              <option selected disabled hidden>Wybierz gatunek</option>
+            </select>
+            <div class="pl-2 pt-2 text-bg-info">* sytuacje gdy mamy bardzo wysoki poziom N po zimie lub wyskie dawki azotu lub regularne wprowadzanie materii organicznej (np. międzyplony, zwłaszcza z bobowatymi).</div>
+          </div>
+
+          <div class="mb-5 flex flex-col">
+            <div class="text-2xl pl-2 pb-2">Stan roślin i korzeni:</div>
+            <select class="w-full h-12 pl-2 text-xl border-2 border-bg-info rounded-3xl hover:bg-bg-info/25" id="stan">
+              <option selected disabled hidden>Wybierz gatunek</option>
+            </select>
+          </div>
+
+          <div class="flex flex-col">
+            <div class="text-2xl pl-2 pb-2">Wyniki:</div>
+            <div class="flex flex-wrap text-top-agrar-green pb-2">
+              <div class="text-2xl pl-2" id="wynik">wybierz parametry</div>
+              <div class="text-2xl pl-2" id="wynik-opis"></div>
             </div>
           </div>
         </div>
