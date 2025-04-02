@@ -65,7 +65,7 @@ gatuenkElement.addEventListener("change", () => {
     let stany = [
       { name: "słabe krzewienie i mało korzeni", value: "0" },
       { name: "normalne krzewienie", value: "1" },
-      { name: "silne krzewienie i dużo korzeni w glebie", value: "3" },
+      { name: "silne krzewienie i dużo korzeni", value: "3" },
     ];
     stanElement.innerHTML = "<option selected disabled>Wybierz z listy</option>";
     stany.forEach((stan) => {
@@ -103,7 +103,7 @@ gatuenkElement.addEventListener("change", () => {
     let stany = [
       { name: "słabe krzewienie i mało korzeni", value: "0" },
       { name: "normalne krzewienie", value: "2" },
-      { name: "silne krzewienie i dużo korzeni w glebie", value: "4" },
+      { name: "silne krzewienie i dużo korzeni", value: "4" },
     ];
     stanElement.innerHTML = "<option selected disabled>Wybierz z listy</option>";
     stany.forEach((stan) => {
@@ -120,8 +120,6 @@ document.addEventListener("change", () => {
 
   const elementResult = document.querySelector("#wynik-opis");
   if (!isNaN(result)) {
-    document.querySelector("#wynik").textContent = result + " -";
-
     if (gatuenkElement.value === "pszenica") {
       switch (result) {
         case 0:
@@ -211,8 +209,7 @@ document.querySelector("#reset").addEventListener("click", () => {
   nawozenieElement.innerHTML = "<option selected disabled>Wybierz z listy</option>";
   stanElement.innerHTML = "<option selected disabled>Wybierz z listy</option>";
 
-  document.querySelector("#wynik").textContent = "wybierz parametry";
-  document.querySelector("#wynik-opis").textContent = "";
+  document.querySelector("#wynik-opis").textContent = "wybierz parametry";
 
   document.querySelectorAll("select").forEach((select) => {
     select.classList.remove("visited");
